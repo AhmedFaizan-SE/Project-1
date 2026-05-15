@@ -69,7 +69,7 @@ app.get("/listings/:id", async (req, res) => {
     res.render("listings/show.ejs", { listing });
 });
 
-// Delete
+// Delete listing
 
 app.delete("/listings/:id" , async (req, res) => {
  let {id} = req.params;
