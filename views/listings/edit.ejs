@@ -6,6 +6,7 @@
     <title>Edit List</title>
 </head>
 <body>
+    <h3>Edit Listing</h3>
     <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
         <input type="text" name="listing[title]" value="<%= listing.title %>">
         <br>
