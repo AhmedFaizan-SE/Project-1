@@ -69,6 +69,13 @@ app.get("/listings/:id", async (req, res) => {
     res.render("listings/show.ejs", { listing });
 });
 
+// Delete
+
+app.delete("/listings/:id" , async (req, res) => {
+ let {id} = req.params;
+ let deleteditem = await Listing.findByIdAndDelete(id);
+ res.redirect("/listings");
+});
 
 // app.get("/testlisting", async(req,res) => {
 //    let sample = new listing ({
