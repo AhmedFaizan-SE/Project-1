@@ -3,14 +3,16 @@
  const app = express();
  const mongoose = require("mongoose");
  const methodOverride = require("method-override");
+ const ejsMate = require("ejs-mate"); 
+ const path = require("path");
  let port = 8080;
 
  // Connect to local MongoDB database
  const mongo_URL = 'mongodb://127.0.0.1:27017/myapp';
  app.use(express.urlencoded({extended:true}));
  app.use(methodOverride("_method"));
- 
- const path = require("path");
+ app.engine('ejs', ejsMate);
+ app.use(express.static(path.join(__dirname, "/public")));
 
  main()
  .then(() => {
@@ -30,6 +32,7 @@ app.get("/", (req, res) => {
 const Listing = require("./models/listing.js");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 
 // Show all listings
 app.get("/listings", async (req, res) => {
