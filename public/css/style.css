@@ -1,5 +1,8 @@
 body {
     background-color: rgb(245, 224, 197);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar{
@@ -13,4 +16,49 @@ body {
 }
 .nav-link{
     color: #222 !important; 
+}
+
+.footer {
+    width: 100%;
+    background-color: white;
+    color: #222;
+    margin-top: auto;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer-link {
+    color: #222;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: red;
+}
+
+.footer-bottom {
+    background-color: #f7f7f7;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: #222;
+}
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.listing-card img {
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.listing-card img:hover {
+ opacity: 0.8;
+ background-color: rgb(255, 255, 255);
 }
