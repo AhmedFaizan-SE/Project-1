@@ -11,7 +11,11 @@
                     <p class="card-text">
                         <b><%= listing.title %></b>
                         <br>
-                        $<%= listing.price.toLocaleString("en-US") %> / night
+                        <% if (listing.price != null) { %>
+                            $<%= listing.price.toLocaleString("en-US") %> / night
+                        <% } else { %>
+                            Price not available
+                        <% } %>
                     </p>
                 </div>
             </div>

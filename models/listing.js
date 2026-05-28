@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const defaultImageUrl = "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80";
 
 const listingSchema = new Schema (
     {
@@ -8,22 +9,28 @@ const listingSchema = new Schema (
             required: true
         },
         description: {
-            type: String
+            type: String,
+            required: true
         },
         image: {
             type: String,
-            default: "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo",
+            required: true,
+            default: defaultImageUrl,
             set: (v) => 
-                v===""? "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo" : v, 
+                v === "" ? defaultImageUrl : v, 
         },
         price: {
-            type: Number
+            type: Number,
+            required: true,
+            min: 0
         },
         location: {
-            type: String
+            type: String,
+            required: true
         },
         country: {
-            type: String
+            type: String,
+            required: true
         }
     }
 );
